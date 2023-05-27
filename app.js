@@ -16,25 +16,30 @@ router.get('/', (req, res) => {
   return res.json({ message: 'API de produtos' })
 })
 
-router.get('/product', async (req, res) => {
+router.get('/products', async (req, res) => {
   const product = await Product.findAll()
   return res.json(product)
 })
 
-router.get('/product/:id', async (req, res) => {
+router.get('/products/:id', async (req, res) => {
   const product = await Product.findByPk(req.params.id)
   return res.json(product)
 })
 
-router.post('/product', async (req, res) => {
+router.post('/products', async (req, res) => {
   const { name, code, category, description, price } = req.body
   const product = await Product.create({
     id: Product.id,
+    name,
+    code,
+    category,
+    description,
+    price,
   })
   return res.json(product)
 })
 
-router.put('/product/:id', async (req, res) => {
+router.put('/products/:id', async (req, res) => {
   const { name, code, category, description, price } = req.body
   const product = await Product.update(
     { name, code, category, description, price },
@@ -43,7 +48,7 @@ router.put('/product/:id', async (req, res) => {
   return res.json(product)
 })
 
-router.delete('/product/:id', async (req, res) => {
+router.delete('/products/:id', async (req, res) => {
   const product = await Product.destroy({ where: { id: req.params.id } })
   return res.json(product)
 })
