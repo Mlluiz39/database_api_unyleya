@@ -1,7 +1,7 @@
-console.log(process.env)
+const dotenv = require('dotenv')
 const { Sequelize } = require('sequelize')
 
-require('dotenv').config()
+dotenv.config()
 const sequelize = new Sequelize({
   dialect: 'postgres',
   host: process.env.DB_HOST,
@@ -15,6 +15,7 @@ const sequelize = new Sequelize({
     underscoredAll: true,
   },
 })
+
 
 sequelize
   .authenticate()
