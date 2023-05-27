@@ -1,8 +1,7 @@
 {
-  "version": "1.0",
-  "build": [
+  "version": "2.0",
+  "builds": [
     {
-      "buildCommand": "next build",
       "src": "src/server.ts",
       "use": "@vercel/node"
     }
