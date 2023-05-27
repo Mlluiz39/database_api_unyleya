@@ -11,16 +11,15 @@ datasource db {
 }
 
 model Product {
-  id    Int     @id @default(autoincrement())
-  name  String?
-  code  String?
-  description String?
-  category String?
-  price Int?
-  image String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String @id @default(uuid())
+  name        String
+  code        String
+  category    String
+  description String
+  price       Int
+  image       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   @@map("products")
 }
-
