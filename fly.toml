@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for apinode on 2023-05-27T19:37:08-03:00
+# fly.toml app configuration file generated for apiuny on 2023-05-27T20:19:44-03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "apinode"
+app = "apiuny"
 primary_region = "gru"
 
 [http_service]
