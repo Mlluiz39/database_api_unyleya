@@ -119,7 +119,7 @@ app.put(
     } catch (error) {
       res
         .status(500)
-        .json({ error: 'Ocorreu um erro ao atualizar o produto !' })
+        .json({ error: 'Ocorreu um erro ao atualizar o produto!!!' })
     }
   }
 )
