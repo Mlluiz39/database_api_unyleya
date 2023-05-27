@@ -13,6 +13,10 @@ const router = express.Router()
 app.use(cors())
 app.use(express.json())
 
+router.get('/', (req, res) => {
+  return res.json({ message: 'API de produtos' })
+})
+
 router.get('/product', async (req, res) => {
   const product = await Product.findAll()
   return res.json(product)
@@ -24,10 +28,9 @@ router.get('/product/:id', async (req, res) => {
 })
 
 router.post('/product', async (req, res) => {
-  const { name, code, category, description, price  } = req.body
+  const { name, code, category, description, price } = req.body
   const product = await Product.create({
     id: Product.id,
-    
   })
   return res.json(product)
 })
