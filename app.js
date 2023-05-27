@@ -1,17 +1,16 @@
 const express = require('express')
 
-const cors = require('cors')
-
 const app = express()
-
 const port = 8080
+
+const cors = require('cors')
 
 const Product = require('./src/models/Product')
 
-const router = express.Router()
-
 app.use(cors())
 app.use(express.json())
+
+const router = express.Router()
 
 router.get('/', (req, res) => {
   return res.json({ message: 'API de produtos' })
