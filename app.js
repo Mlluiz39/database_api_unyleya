@@ -4,6 +4,8 @@ const cors = require('cors')
 
 const app = express()
 
+const port = process.env.PORT || 8080
+
 const Product = require('./src/models/Product')
 
 const router = express.Router()
@@ -22,21 +24,18 @@ router.get('/product/:id', async (req, res) => {
 })
 
 router.post('/product', async (req, res) => {
-  const { firstName, hamburger, drink, follow_up } = req.body
+  const { name, code, category, description, price  } = req.body
   const product = await Product.create({
     id: Product.id,
-    firstName,
-    hamburger,
-    drink,
-    follow_up,
+    
   })
   return res.json(product)
 })
 
 router.put('/product/:id', async (req, res) => {
-  const { firstName, hamburger, drink, follow_up } = req.body
+  const { name, code, category, description, price } = req.body
   const product = await Product.update(
-    { firstName, hamburger, drink, follow_up },
+    { name, code, category, description, price },
     { where: { id: req.params.id } }
   )
   return res.json(product)
@@ -48,5 +47,9 @@ router.delete('/product/:id', async (req, res) => {
 })
 
 app.use('/', router)
+
+app.listen(port, () => {
+  console.log(`Back end is page at http://localhost:${port}`)
+})
 
 module.exports = app
