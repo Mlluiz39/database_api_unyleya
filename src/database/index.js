@@ -1,8 +1,7 @@
 const { Sequelize } = require('sequelize')
-const configDatabase = require('../config/database')
 
-const sequelize = new Sequelize(configDatabase)
-const dotenv = require('dotenv')
+require('dotenv').config()
+const sequelize = new Sequelize('postgres://yagchbpz:GcmDilEdfX9z-joX_ZivinBxbU8zx5Iz@silly.db.elephantsql.com/yagchbpz')
 
 sequelize
   .authenticate()
