@@ -5,6 +5,8 @@ const port = 3000
 
 const cors = require('cors')
 
+require('./src/database')
+
 const Product = require('./src/models/Product')
 
 app.use(cors())

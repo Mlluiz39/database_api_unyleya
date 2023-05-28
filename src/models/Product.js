@@ -1,20 +1,13 @@
 const Sequelize = require('sequelize')
-const db = require('../service/db')
+const db = require('../database')
 
-
-const Product = db.define('products', {
-  id: {
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV4,
-    primaryKey: true,
-    allowNull: false
-  },
-  Name: {
+const Product = db.connection.define('products', {
+  name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
   code: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   category: {
@@ -26,11 +19,9 @@ const Product = db.define('products', {
     allowNull: false,
   },
   price: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.FLOAT,
     allowNull: false,
   },
 })
-
-Product.sync()
 
 module.exports = Product
