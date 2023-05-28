@@ -1,15 +1,21 @@
-const { Sequelize } = require('sequelize')
+const Sequelize = require('sequelize')
 
-require('dotenv').config()
-const sequelize = new Sequelize('postgres://yagchbpz:GcmDilEdfX9z-joX_ZivinBxbU8zx5Iz@silly.db.elephantsql.com/yagchbpz')
+const configDatabase = require('../config/database')
 
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('conectado com sucesso!.')
-  })
-  .catch(err => {
-    console.error('erro ao conectar ao database:', err)
-  })
+const Product = require('../app/models/Product')
 
-module.exports = sequelize
+const models = [Product]
+
+class Database {
+  constructor() {
+    this.init()
+  }
+
+  init() {
+    this.connection = new Sequelize(configDatabase)
+
+    models.map(model => model.init(this.connection))
+  }
+}
+
+module.exports = new Database()

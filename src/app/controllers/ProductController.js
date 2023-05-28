@@ -20,8 +20,8 @@ class ProductController {
         return res.status(400).json({ error: err.errors })
       }
 
-      const { filename: path } = req.file
       const { name, code, category, description, price } = req.body
+      const { filename: path } = req.file
 
       const product = await Product.create({
         name,
@@ -41,13 +41,7 @@ class ProductController {
   async index(req, res) {
     try {
       const products = await Product.findAll({
-        include: [
-          {
-            model: Category,
-            as: 'category',
-            attributes: ['id', 'name'],
-          },
-        ],
+        attributes: ['name', 'code', 'category', 'description', 'price', 'path'],
       })
 
       return res.json(products)
