@@ -33,9 +33,13 @@ Veja um exemplo abaixo:
 
 
 DB_HOST=localhost
+
 DB_PORT=5432
+
 DB_NAME=nomedobanco
+
 DB_USER=seuusuario
+
 DB_PASSWORD=suasenha
 
 
