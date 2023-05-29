@@ -24,6 +24,7 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.2.11",
     "nodemon": "^2.0.22",
     "sequelize-cli": "^6.6.0"
   }
