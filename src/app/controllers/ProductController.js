@@ -40,7 +40,9 @@ class ProductController {
 
   async index(req, res) {
     try {
-      const products = await Product.findAll()
+      const products = await Product.findAll({
+        attributes: ['name', 'code', 'category', 'description', 'price'],
+      })
 
       return res.json(products)
     } catch (error) {
