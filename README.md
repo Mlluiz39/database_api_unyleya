@@ -30,18 +30,18 @@ cd database_api_unyleya
 
 4. Crie um arquivo `.env` na raiz do projeto e configure as variáveis de ambiente necessárias. 
 
-### Veja um exemplo abaixo:
+**Veja um exemplo abaixo:**
 
 
-DB_HOST=localhost
+*DB_HOST=localhost
 
-DB_PORT=5432
+*DB_PORT=5432
 
-DB_NAME=nomedobanco
+*DB_NAME=nomedobanco
 
-DB_USER=seuusuario
+*DB_USER=seuusuario
 
-DB_PASSWORD=suasenha
+*DB_PASSWORD=suasenha
 
 
 5. Crie um banco de dados PostgreSQL correspondente ao nome configurado em `DB_NAME`.
