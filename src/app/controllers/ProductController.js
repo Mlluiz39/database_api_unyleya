@@ -40,17 +40,14 @@ class ProductController {
 
   async index(req, res) {
     try {
-      const products = await Product.findAll({
-        attributes: ['name', 'code', 'category', 'description', 'price'],
-      })
+      const products = await Product.findAll()
 
       return res.json(products)
     } catch (error) {
       console.log(error)
     }
   }
-
-  async update(req, res) {
+async update(req, res) {
     try {
       const schema = yup.object().shape({
         name: yup.string().required(),
