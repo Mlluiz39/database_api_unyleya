@@ -6,6 +6,9 @@ const ProductController = require('./app/controllers/ProductController')
 
 const upload = multer(multerConfig)
 
+routes.get('/', (req, res) => {
+  res.json({ message: 'API de produtos da unyleya' })
+})
 routes.get('/products', ProductController.index)
 routes.get('/products/:id', ProductController.show)
 routes.post('/products', upload.single('file'), ProductController.store)
