@@ -10,7 +10,7 @@ class ProductController {
         category: yup.string().required(),
         description: yup.string().required(),
         price: yup.number().required(),
-        path: yup.string().required(),
+        path: yup.string()
       })
 
       try {
@@ -20,8 +20,8 @@ class ProductController {
         return res.status(400).json({ error: err.errors })
       }
 
-      const { name, code, category, description, price } = req.body
       const { filename: path } = req.file
+      const { name, code, category, description, price } = req.body
 
       const product = await Product.create({
         name,
@@ -40,9 +40,7 @@ class ProductController {
 
   async index(req, res) {
     try {
-      const products = await Product.findAll({
-        attributes: ['name', 'code', 'category', 'description', 'price', 'path'],
-      })
+      const products = await Product.findAll()
 
       return res.json(products)
     } catch (error) {
@@ -177,7 +175,6 @@ class ProductController {
       console.log(error)
     }
   }
-
 }
 
 module.exports = new ProductController()

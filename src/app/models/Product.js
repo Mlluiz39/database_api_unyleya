@@ -10,13 +10,11 @@ class Product extends Model {
         category: Sequelize.STRING,
         description: Sequelize.STRING,
         price: Sequelize.INTEGER,
-        path: {
-          type: Sequelize.STRING,
-          defaultValue: '',
+        path: Sequelize.STRING,
+        url: {
+          type: Sequelize.VIRTUAL,
           get() {
-            return `http://localhost:3000/path-files/${this.getDataValue(
-              'path'
-            )}`
+            return `http://localhost:3000/path-files/${this.path}`
           },
         },
       },
