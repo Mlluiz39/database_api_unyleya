@@ -29,7 +29,8 @@ cd database_api_unyleya
 
 
 4. Crie um arquivo `.env` na raiz do projeto e configure as variáveis de ambiente necessárias. 
-Veja um exemplo abaixo:
+
+### Veja um exemplo abaixo:
 
 
 DB_HOST=localhost
