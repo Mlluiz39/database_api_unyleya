@@ -5,8 +5,8 @@ const port = process.env.PORT || "3000";
 const server = app.listen(port, () => {
   if (process.env.NODE_ENV === "dev" || "dev") {
     console.log(`Listening to requests on http://localhost:${port}/products`);
-  }else if (process.env.NODE_ENV === "start" || "start:dev") {
-    console.log(`Listening to requests on https://api-uny.fly.dev/`);
+  }else if (process.env.NODE_ENV === "start" || "start") {
+    console.log(`Listening to requests on https://api-uny.fly.dev/products`);
   }
 });
 
