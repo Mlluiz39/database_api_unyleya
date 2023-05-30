@@ -3,7 +3,6 @@ const multer = require('multer')
 const multerConfig = require('./config/multer')
 
 const ProductController = require('./app/controllers/ProductController')
-const Product = require('./app/models/Product')
 
 const upload = multer(multerConfig)
 
