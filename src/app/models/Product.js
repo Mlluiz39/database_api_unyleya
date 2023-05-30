@@ -14,7 +14,7 @@ class Product extends Model {
         url: {
           type: Sequelize.VIRTUAL,
           get() {
-            return `https://api-unyleya.fly.dev/path-files/${this.path}`
+            return `https://api-unyleya.fly.dev/path/${this.path}`
           },
         },
       },

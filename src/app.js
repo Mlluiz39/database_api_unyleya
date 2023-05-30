@@ -17,7 +17,7 @@ class App {
     this.app.use(express.json());
 
     this.app.use(
-      "/path-files",
+      "/path",
       express.static(resolve(__dirname, "..", "uploads"))
     );
   }

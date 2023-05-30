@@ -11,22 +11,6 @@ routes.get('/', (req, res) => {
   res.json({ message: 'API de produtos da unyleya' })
 })
 
-routes.post('/product', upload.single('file') , async (req, res) => {
-  const { name, code, category, description, price } = req.body
-  const { filename: path } = req.file
-
-  const product = await Product.create({
-    name,
-    code,
-    category,
-    description,
-    price,
-    path,
-  })
-
-  return res.json(product)
-})
-
 routes.get('/products', ProductController.index)
 routes.get('/products/:id', ProductController.show)
 routes.post('/products', upload.single('file'), ProductController.store)
