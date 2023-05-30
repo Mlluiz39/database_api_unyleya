@@ -1,5 +1,12 @@
 const yup = require('yup')
 const Product = require('../models/Product')
+const cloudinary = require('cloudinary').v2
+
+cloudinary.config({
+  cloud_name: 'drocbczra',
+  api_key: '347398947579389',
+  api_secret: 'aIiJV63g6GSt0cFrOlUvNBPBelg',
+})
 
 class ProductController {
   async store(req, res) {
@@ -10,7 +17,7 @@ class ProductController {
         category: yup.string().required(),
         description: yup.string().required(),
         price: yup.number().required(),
-        path: yup.string()
+        path: yup.string(),
       })
 
       try {
@@ -20,7 +27,12 @@ class ProductController {
         return res.status(400).json({ error: err.errors })
       }
 
-      const { filename: path } = req.file
+      let path = ''
+      if (req.file) {
+        const result = await cloudinary.uploader.upload(req.file.path)
+        path = result.secure_url
+      }
+
       const { name, code, category, description, price } = req.body
 
       const product = await Product.create({
@@ -47,7 +59,7 @@ class ProductController {
       console.log(error)
     }
   }
-async update(req, res) {
+  async update(req, res) {
     try {
       const schema = yup.object().shape({
         name: yup.string().required(),
