@@ -11,12 +11,6 @@ class Product extends Model {
         description: Sequelize.STRING,
         price: Sequelize.INTEGER,
         path: Sequelize.STRING,
-        url: {
-          type: Sequelize.VIRTUAL,
-          get() {
-            return `https://unyleya-api.fly.dev/products/path/${this.path}`
-          }
-        }
       },
       {
         sequelize,
