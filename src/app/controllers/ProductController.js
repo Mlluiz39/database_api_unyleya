@@ -29,7 +29,7 @@ class ProductController {
 
       let path = ''
       if (req.file) {
-        const result = await cloudinary.uploader.upload(req.file.path)
+        const result = await cloudinary.uploader.upload('/uploads')
         path = result.secure_url
       }
 
