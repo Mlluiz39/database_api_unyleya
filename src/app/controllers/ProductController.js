@@ -27,12 +27,16 @@ class ProductController {
         return res.status(400).json({ error: err.errors })
       }
 
-      let path = ''
-      if (req.file) {
-        const result = await cloudinary.uploader.upload('/uploads' + req.file.filename)
-        path = result.secure_url
-      }
-
+      // let path = ''
+      // if (req.file) {
+      //   const result = await cloudinary.uploader.upload('/uploads' + req.file.filename)
+      //   path = result.secure_url
+      // }
+      let { filename: path } = req.file
+      const result = await cloudinary.uploader.upload(
+        './uploads/' + req.file.filename
+      )
+      path = result.secure_url
       const { name, code, category, description, price } = req.body
 
       const product = await Product.create({
